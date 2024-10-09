@@ -11,89 +11,104 @@
                 extend: {
                     colors: {
                         primary: {
+                            DEFAULT: '#254979',
                             light: '#376CB3',
-                            dark: '#254979',
                         },
                         secondary: '#ffaf00',
+                        accent: {
+                            teal: '#20c997',
+                        },
+                        dark: '#121416',
                     }
                 }
             }
         }
     </script>
+    <style>
+        .geometric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .geometric-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, 50px) rotate(90deg); }
+            50% { transform: translate(100px, 0) rotate(180deg); }
+            75% { transform: translate(50px, -50px) rotate(270deg); }
+        }
+    </style>
 </head>
-<body class="h-full bg-gradient-to-b from-blue-100 to-blue-200 font-sans">
+<body class="h-full bg-dark text-gray-200 font-sans">
+    <div class="geometric-bg">
+        <svg class="geometric-shape" style="top: 10%; left: 10%;" width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="#254979" />
+        </svg>
+        <svg class="geometric-shape" style="top: 70%; left: 80%;" width="120" height="120" viewBox="0 0 120 120">
+            <rect width="80" height="80" x="20" y="20" fill="#20c997" />
+        </svg>
+        <svg class="geometric-shape" style="top: 40%; left: 60%;" width="150" height="150" viewBox="0 0 150 150">
+            <polygon points="75,20 120,110 30,110" fill="#ffaf00" />
+        </svg>
+    </div>
+
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl w-full space-y-8">
+        <div class="max-w-md w-full space-y-8">
             <div>
-                <img src="/api/placeholder/200/100" alt="Prosp3r Logo" class="mx-auto h-20 w-auto">
-                <h1 class="mt-6 text-center text-4xl font-extrabold text-primary-dark">
-                    Welcome to Prosp<span class="text-secondary">3</span>r
-                </h1>
-                <p class="mt-2 text-center text-sm text-gray-600">
-                    A platform that is made <span class="font-medium">by the candidates for the candidates!</span>
+                <img src="img/prosp3r_logo.svg" alt="Prosp3r Logo" class="mx-auto h-16 w-auto">
+                <p class="mt-2 text-center text-sm text-gray-400">
+                    By candidates, for candidates
                 </p>
             </div>
             
-            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                <div class="px-4 py-5 sm:px-6">
-                    <h2 class="text-lg leading-6 font-medium text-primary-light">
-                        We're launching soon!
+            <div class="bg-gray-800 shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <h2 class="text-lg leading-6 font-medium text-accent-teal">
+                        Launching Soon
                     </h2>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                        The first truly interactive, person-to-person Candidate Mentorship and Job Board Search Engine.
+                    <p class="mt-2 text-sm text-gray-400">
+                        The first truly interactive Candidate Mentorship and Job Board Search Engine for <span class="text-primary-light">Elixir, Erlang, and Clojure</span> professionals.
                     </p>
-                </div>
-                <div class="border-t border-gray-200">
-                    <dl>
-                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Our Focus
+                    <dl class="mt-5 space-y-4">
+                        <div class="flex items-start">
+                            <dt class="flex-shrink-0">
+                                <svg class="h-6 w-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
                             </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                Elixir, Erlang and Clojure
-                            </dd>
+                            <dd class="ml-2 text-sm text-gray-400">CV search for Clients</dd>
                         </div>
-                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Experience
+                        <div class="flex items-start">
+                            <dt class="flex-shrink-0">
+                                <svg class="h-6 w-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
                             </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                24 years of collective knowledge and expertise
-                            </dd>
+                            <dd class="ml-2 text-sm text-gray-400">Candidate Fulfillment Mentorship Program</dd>
                         </div>
-                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Our Approach
+                        <div class="flex items-start">
+                            <dt class="flex-shrink-0">
+                                <svg class="h-6 w-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
                             </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                Yearlong research, market analysis, and conducted focus groups
-                            </dd>
+                            <dd class="ml-2 text-sm text-gray-400">Client Job Postings and Consultation</dd>
                         </div>
                     </dl>
                 </div>
             </div>
 
-            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                <div class="px-4 py-5 sm:px-6">
-                    <h3 class="text-lg leading-6 font-medium text-secondary">
-                        Our Three Services
-                    </h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                        Helping all candidates prosper in their career
-                    </p>
-                </div>
-                <div class="border-t border-gray-200">
-                    <ul class="divide-y divide-gray-200">
-                        <li class="px-4 py-4 sm:px-6">CV search for Clients</li>
-                        <li class="px-4 py-4 sm:px-6">Candidate Fulfillment Mentorship Program</li>
-                        <li class="px-4 py-4 sm:px-6">Client Job Postings and Consultation</li>
-                    </ul>
-                </div>
-            </div>
-
             <div class="text-center">
-                <p class="text-base text-gray-500">
-                    Stay tuned for the launch of Prosp3r, where your career prosperity awaits.
+                <p class="text-xs text-gray-400">
+                    24 years of collective experience in Elixir, Erlang, and Clojure
                 </p>
             </div>
         </div>
