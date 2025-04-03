@@ -1,117 +1,1094 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prosp3r - Coming Soon</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            DEFAULT: '#254979',
-                            light: '#376CB3',
-                        },
-                        secondary: '#ffaf00',
-                        accent: {
-                            teal: '#20c997',
-                        },
-                        dark: '#121416',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .geometric-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        .geometric-shape {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 15s infinite ease-in-out;
-        }
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(50px, 50px) rotate(90deg); }
-            50% { transform: translate(100px, 0) rotate(180deg); }
-            75% { transform: translate(50px, -50px) rotate(270deg); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prosp3r</title>
+
+
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Prosp3r" />
+  <link rel="manifest" href="/img/favicons/site.webmanifest" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f8fafc;
+    }
+
+    .hero {
+      min-height: auto;
+      height: 100vh;
+      max-height: 800px;
+      background-color: #0a4d8d;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-height: 800px) {
+      .hero {
+        height: 700px;
+        min-height: 0;
+      }
+    }
+
+    @media (max-height: 700px) {
+      .hero {
+        height: 600px;
+      }
+    }
+
+    .navbar {
+      padding: 4rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .logo svg {
+      height: 40px;
+      width: auto;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      flex-grow: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .highlight {
+      display: inline;
+      position: relative;
+      color: white;
+      z-index: 1;
+      transition: transform 0.3s ease;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .highlight::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background-color: rgba(255, 255, 255, 0.2);
+      z-index: -1;
+      border-radius: 4px;
+      transition: height 0.3s ease, background-color 0.3s ease;
+    }
+
+    .highlight:hover {
+      transform: translateY(-3px);
+    }
+
+    .highlight:hover::after {
+      height: 40%;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .highlight-blue {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .highlight-blue::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background-color: rgba(3, 138, 255, 0.2);
+      z-index: -1;
+      border-radius: 4px;
+      transition: height 0.3s ease, background-color 0.3s ease;
+    }
+
+    .highlight-blue:hover {
+      transform: translateY(-3px);
+    }
+
+    .highlight-blue:hover::after {
+      height: 40%;
+      background-color: rgba(3, 138, 255, 0.3);
+    }
+
+    .hero-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .btn {
+      background-color: white;
+      color: #0a4d8d;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.25rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      margin-bottom: 2rem;
+    }
+
+    .btn:hover {
+      background-color: transparent;
+      color: white;
+      border-color: white;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      background-color: #e6f3ff;
+      padding: 4rem 6rem;
+      margin-top: auto;
+      min-height: 600px;
+      align-items: center;
+    }
+
+    .feature {
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .feature-icon {
+      background-color: #7ce0c8;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #4694AF;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 0;
+    }
+
+    .feature:hover .feature-icon {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature:hover .feature-icon::before {
+      transform: scale(1);
+    }
+
+    .feature-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke: #0a4d8d;
+      stroke-width: 2;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature:hover .feature-icon svg {
+      stroke: #ffffff;
+      transform: rotate(360deg);
+    }
+
+    .feature-title {
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover .feature-title {
+      color: #0a4d8d;
+      transform: translateY(-3px);
+    }
+
+    .feature-title {
+      color: #0a4d8d;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-text {
+      color: #333;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+
+      .logo svg {
+        height: 30px;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        min-height: auto;
+        padding: 3rem 1rem;
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+      }
+
+      .feature-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .feature:hover .feature-icon {
+        transform: translateY(-5px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .logo svg {
+        height: 24px;
+      }
+
+      .hero-title {
+        font-size: 1.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .feature-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .feature:hover .feature-icon {
+        transform: translateY(-3px);
+      }
+    }
+
+    .about-section {
+      background-color: #f8fafc;
+      padding: 5rem 2rem;
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a4d8d;
+      margin-bottom: 2rem;
+    }
+
+    .about-title .highlight {
+      color: #0a4d8d;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text .highlight {
+      color: #0a4d8d;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+    }
+
+    .about-text .highlight::after {
+      background-color: rgba(10, 77, 141, 0.1);
+      transition: height 0.3s ease, background-color 0.3s ease;
+    }
+
+    .about-text .highlight:hover::after {
+      background-color: rgba(10, 77, 141, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .about-title {
+        font-size: 2rem;
+      }
+
+      .about-text {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-section {
+        padding: 2rem 1rem;
+      }
+
+      .about-title {
+        font-size: 1.5rem;
+      }
+
+      .about-text {
+        font-size: 1rem;
+      }
+    }
+
+    #digit-3 {
+      transform-origin: center;
+      transform-box: fill-box;
+      transition: transform 0.3s ease-out;
+    }
+
+    #prosper-logo-svg:hover #digit-3 {
+      transform: rotateY(180deg);
+    }
+
+    .launching-section {
+      background-color: #f0f7ff;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .launching-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .launching-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a4d8d;
+      margin-bottom: 1rem;
+    }
+
+    .launching-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .waitlist-form {
+      margin-bottom: 3rem;
+    }
+
+    .input-group {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 2px solid #d1e1f5;
+      border-radius: 0.25rem 0 0 0.25rem;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #0a4d8d;
+    }
+
+    .btn-waitlist {
+      background-color: #0a4d8d;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0 0.25rem 0.25rem 0;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-waitlist:hover {
+      background-color: #083b6d;
+    }
+
+    .form-message {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      height: 20px;
+    }
+
+    .form-message.success {
+      color: #2ca58d;
+    }
+
+    .form-message.error {
+      color: #e53e3e;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .countdown-item span:first-child {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a4d8d;
+    }
+
+    .countdown-label {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .launching-title {
+        font-size: 2rem;
+      }
+
+      .launching-text {
+        font-size: 1.1rem;
+      }
+
+      .countdown {
+        gap: 1rem;
+      }
+
+      .countdown-item span:first-child {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .launching-section {
+        padding: 3rem 1rem;
+      }
+
+      .launching-title {
+        font-size: 1.75rem;
+      }
+
+      .launching-text {
+        font-size: 1rem;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      .input-group input {
+        border-radius: 0.25rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .btn-waitlist {
+        border-radius: 0.25rem;
+        width: 100%;
+      }
+
+      .countdown {
+        flex-wrap: wrap;
+      }
+
+      .countdown-item {
+        flex-basis: 40%;
+        margin-bottom: 1rem;
+      }
+
+      .countdown-item span:first-child {
+        font-size: 1.5rem;
+      }
+    }
+
+    .footer {
+      background-color: #f8fafc;
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-left {
+      flex: 1;
+      max-width: 320px;
+    }
+
+    .footer-logo {
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .footer-tagline {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .footer-right {
+      flex: 2;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: space-around;
+      gap: 2rem;
+    }
+
+    .footer-column {
+      flex: 1;
+    }
+
+    .footer-heading {
+      color: #0a4d8d;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-nav li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-nav a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+      color: #0a4d8d;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #e6f3ff;
+      color: #0a4d8d;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background-color: #0a4d8d;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    #footer-digit-3 {
+      transform-origin: center;
+      transform-box: fill-box;
+      transition: transform 0.3s ease-out;
+    }
+
+    #footer-prosper-logo-svg:hover #footer-digit-3 {
+      transform: rotateY(180deg);
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+      }
+
+      .footer-left {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .footer-logo {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer {
+        padding: 2rem 1rem 1.5rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .social-link {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.min.css" rel="stylesheet">
 </head>
-<body class="h-full bg-dark text-gray-200 font-sans">
-    <div class="geometric-bg">
-        <svg class="geometric-shape" style="top: 10%; left: 10%;" width="100" height="100" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" fill="#254979" />
+
+<body>
+  <div class="hero">
+    <nav class="navbar logo-container">
+      <a href="#" class="logo">
+        <svg id="prosper-logo-svg" width="383" height="86" viewBox="0 0 383 86" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <!-- P -->
+          <g id="letter-P">
+            <path
+              d="M0 0H33.4644C48.1655 0 54.4522 9.09148 54.4522 19.537C54.4522 29.4022 48.7458 40.0412 33.4644 40.0412H13.1536C12.0897 40.0412 11.5094 40.5248 11.5094 41.6854V65.2846H0.0967169V39.4609C0.0967169 32.1103 3.19169 29.1121 10.3488 29.1121H33.8513C40.3314 29.1121 42.9428 24.6631 42.9428 20.1173C42.9428 15.3782 40.1379 11.4127 33.948 11.4127H0V0Z"
+              fill="white" />
+          </g>
+
+          <!-- R -->
+          <g id="letter-R">
+            <path
+              d="M77.1014 14.2175H98.0892V24.0828H80.0997C75.5539 24.0828 73.5229 26.2106 73.5229 30.6596V65.2846H63.2708V29.1121C63.2708 18.86 67.0428 14.2175 77.1014 14.2175Z"
+              fill="white" />
+          </g>
+
+          <!-- O -->
+          <g id="letter-O">
+            <path
+              d="M127.868 14.2175H138.604C152.144 14.2175 160.752 22.5353 160.752 39.7511C160.752 56.9669 152.144 65.2846 138.604 65.2846H127.868C114.231 65.2846 105.719 56.9669 105.719 39.7511C105.719 22.5353 114.231 14.2175 127.868 14.2175ZM137.636 24.0828H128.835C119.937 24.0828 116.068 28.7252 116.068 39.7511C116.068 50.7769 119.937 55.3227 128.835 55.3227H137.636C146.438 55.3227 150.403 50.7769 150.403 39.7511C150.403 28.7252 146.438 24.0828 137.636 24.0828Z"
+              fill="white" />
+          </g>
+
+          <!-- S -->
+          <g id="letter-S">
+            <path
+              d="M187.243 14.2175H215.581V24.0828H187.34C182.601 24.0828 180.666 26.0171 180.666 29.8858C180.666 33.4644 182.214 35.3988 187.92 35.3988H199.913C214.034 35.3988 217.612 41.8789 217.612 49.8097C217.612 58.9012 212.873 65.2846 200.88 65.2846H171.188V55.3227H200.88C205.619 55.3227 207.554 53.6785 207.554 49.713C207.554 45.6509 205.426 44.0067 200.3 44.0067H188.21C174.089 44.0067 170.608 36.9462 170.608 29.1121C170.608 19.9239 175.347 14.2175 187.243 14.2175Z"
+              fill="white" />
+          </g>
+
+          <!-- P -->
+          <g id="letter-P2">
+            <path
+              d="M248.266 14.2175H262.387C275.927 14.2175 284.438 22.5353 284.438 39.7511C284.438 56.9669 275.927 65.2846 262.387 65.2846H239.755V85.7888H229.502V36.0758C229.502 21.3747 235.983 14.2175 248.266 14.2175ZM239.755 36.5594V55.3227H261.323C270.221 55.3227 274.089 50.7769 274.089 39.7511C274.089 28.7252 270.221 24.0828 261.323 24.0828H251.264C242.946 24.0828 239.755 27.758 239.755 36.5594Z"
+              fill="white" />
+          </g>
+
+          <!-- 3 -->
+          <g id="digit-3">
+            <path
+              d="M293.947 14.1923H319.456C331.491 14.1923 336.562 20.0206 336.562 27.8926C336.562 33.948 333.989 37.6569 329.296 39.6249C334.14 41.6686 336.713 45.4532 336.713 51.5843C336.713 59.2292 331.718 65.2846 319.683 65.2846H293.872V56.3529H319.683C324.905 56.3529 327.403 53.9308 327.403 49.8434C327.403 45.756 324.754 43.7123 319.607 43.7123H303.863V35.6132H319.38C324.603 35.6132 327.176 33.7209 327.176 29.4821C327.176 25.6218 324.83 23.124 319.456 23.124H293.947V14.1923Z"
+              fill="white" />
+          </g>
+
+          <!-- R -->
+          <g id="letter-R2">
+            <path
+              d="M362.011 14.2175H382.999V24.0828H365.01C360.464 24.0828 358.433 26.2106 358.433 30.6596V65.2846H348.181V29.1121C348.181 18.86 351.953 14.2175 362.011 14.2175Z"
+              fill="white" />
+          </g>
         </svg>
-        <svg class="geometric-shape" style="top: 70%; left: 80%;" width="120" height="120" viewBox="0 0 120 120">
-            <rect width="80" height="80" x="20" y="20" fill="#20c997" />
-        </svg>
-        <svg class="geometric-shape" style="top: 40%; left: 60%;" width="150" height="150" viewBox="0 0 150 150">
-            <polygon points="75,20 120,110 30,110" fill="#ffaf00" />
-        </svg>
+      </a>
+    </nav>
+
+    <div class="hero-content">
+      <h1 class="hero-title">A true passion for <span class="highlight">Elixir</span>, <span
+          class="highlight">Erlang</span> and <span class="highlight">Clojure</span> inspired us to build a platform by
+        <span class="highlight">candidates</span>, for <span class="highlight">candidates</span> designed to help you
+        succeed and Prosp3r in finding your next career opportunity.</h1>
+      <p class="hero-subtitle">We're the first truly interactive, person-to-person Candidate Mentorship and Job Board
+        for candidates and companies.</p>
     </div>
+  </div>
 
-    <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full space-y-8">
-            <div>
-                <img src="img/prosp3r_logo.svg" alt="Prosp3r Logo" class="mx-auto h-16 w-auto">
-                <p class="mt-2 text-center text-sm text-gray-400">
-                    By candidates, for candidates
-                </p>
-            </div>
-            
-            <div class="bg-gray-800 shadow overflow-hidden sm:rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
-                    <h2 class="text-lg leading-6 font-medium text-accent-teal">
-                        Launching Soon
-                    </h2>
-                    <p class="mt-2 text-sm text-gray-400">
-                        The first truly interactive Candidate Mentorship and Job Board Search Engine for <span class="text-primary-light">Elixir, Erlang, and Clojure</span> professionals.
-                    </p>
-                    <dl class="mt-5 space-y-4">
-                        <div class="flex items-start">
-                            <dt class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </dt>
-                            <dd class="ml-2 text-sm text-gray-400">CV search for Clients</dd>
-                        </div>
-                        <div class="flex items-start">
-                            <dt class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                </svg>
-                            </dt>
-                            <dd class="ml-2 text-sm text-gray-400">Candidate Fulfillment Mentorship Program</dd>
-                        </div>
-                        <div class="flex items-start">
-                            <dt class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </dt>
-                            <dd class="ml-2 text-sm text-gray-400">Client Job Postings and Consultation</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
+  <section class="bg-gradient-to-r from-blue-50 via-blue-100 to-teal-50 py-24 px-6" id="featuresSection">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-blue-800 mb-3">Our Core Services</h2>
+        <p class="text-slate-600 text-xl max-w-3xl mx-auto">Three specialized solutions designed to transform your
+          recruitment experience</p>
+      </div>
 
-            <div class="text-center">
-                <p class="text-xs text-gray-400">
-                    24 years of collective experience in Elixir, Erlang, and Clojure
-                </p>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Feature 1 -->
+        <div
+          class="bg-white rounded-xl shadow-lg p-8 transform transition duration-300 hover:translate-y-[-8px] hover:shadow-xl flex flex-col h-full">
+          <div
+            class="bg-gradient-to-br from-teal-400 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
+              <path d="M16 8h.01"></path>
+              <path d="M8 9l3 3-3 3"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-blue-800 mb-4">Candidate Talent Search</h3>
+          <p class="text-slate-600 mb-6 flex-grow">Our advanced search engine helps you quickly identify and connect
+            with qualified candidates who match your precise requirements.</p>
         </div>
+
+        <!-- Feature 2 -->
+        <div
+          class="bg-white rounded-xl shadow-lg p-8 transform transition duration-300 hover:translate-y-[-8px] hover:shadow-xl flex flex-col h-full">
+          <div
+            class="bg-gradient-to-br from-teal-400 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12h6"></path>
+              <path d="M22 12h-6"></path>
+              <path d="M12 2v6"></path>
+              <path d="M12 22v-6"></path>
+              <path d="M17 7l-5 5-5-5"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-blue-800 mb-4">Candidate Mentoring Program</h3>
+          <p class="text-slate-600 mb-6 flex-grow">Our structured mentorship connects professionals with industry
+            experts to build skills, confidence, and career momentum.</p>
+          <!-- <a href="#" class="text-blue-700 font-medium inline-flex items-center group">
+            Learn more 
+            <svg class="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a> -->
+        </div>
+
+        <!-- Feature 3 -->
+        <div
+          class="bg-white rounded-xl shadow-lg p-8 transform transition duration-300 hover:translate-y-[-8px] hover:shadow-xl flex flex-col h-full">
+          <div
+            class="bg-gradient-to-br from-teal-400 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <path d="M16 2v4"></path>
+              <path d="M8 2v4"></path>
+              <path d="M3 10h18"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-blue-800 mb-4">Job Postings & Hiring Solutions</h3>
+          <p class="text-slate-600 mb-6 flex-grow">Maximize your job listing visibility with our targeted promotion
+            tools designed to attract qualified candidates in Elixir, Erlang, and Clojure.</p>
+          <!-- <a href="#" class="text-blue-700 font-medium inline-flex items-center group">
+            Learn more 
+            <svg class="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a> -->
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-container">
+      <h2 class="about-title">Why are we called <span class="highlight-blue">Prosper</span> with a <span
+          class="highlight-blue">3</span>?</h2>
+      <div class="about-content">
+        <p class="about-text">
+          Through our year long research, market analysis and many conducted focus groups we have managed to add our
+          findings to our varied, collective 35 years of experience and knowledge of Elixir, Erlang and Clojure. From
+          this we've concluded that offering <span class="highlight">3</span> particular services will help all
+          candidates to prosper in finding their next career opportunity.
+        </p>
+        <p class="about-text">
+          Alongside our main services we also offer all candidates a Free Candidate Advice Assessment (CAA) to help
+          direct you in your career search for your next opportunity!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="launching-section">
+    <div class="launching-container">
+      <h2 class="launching-title">Launching <span class="highlight-blue">Soon</span></h2>
+      <p class="launching-text">Be the first to know when we go live and get early access to our exclusive features.</p>
+
+      <form method="POST" id="waitlist-form" class="waitlist-form">
+        <div class="input-group">
+          <input type="hidden" name="access_key" value="9fa1771f-95b2-4217-82e8-7a7d23710b64">
+          <input type="hidden" name="subject" value="WeProsp3r - Waitlist Signup">
+          <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+          <input type="email" name="email" placeholder="Enter your email address" required>
+          <input type="hidden" name="message" value="New Signup on the Waitlist">
+
+          <button type="submit" class="btn-waitlist">Join Us</button>
+        </div>
+        <p id="form-message" class="form-message"></p>
+      </form>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <svg id="footer-prosper-logo-svg" width="180" height="40" viewBox="0 0 383 86" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <!-- P -->
+            <g id="footer-letter-P">
+              <path
+                d="M0 0H33.4644C48.1655 0 54.4522 9.09148 54.4522 19.537C54.4522 29.4022 48.7458 40.0412 33.4644 40.0412H13.1536C12.0897 40.0412 11.5094 40.5248 11.5094 41.6854V65.2846H0.0967169V39.4609C0.0967169 32.1103 3.19169 29.1121 10.3488 29.1121H33.8513C40.3314 29.1121 42.9428 24.6631 42.9428 20.1173C42.9428 15.3782 40.1379 11.4127 33.948 11.4127H0V0Z"
+                fill="#0a4d8d" />
+            </g>
+
+            <!-- R -->
+            <g id="footer-letter-R">
+              <path
+                d="M77.1014 14.2175H98.0892V24.0828H80.0997C75.5539 24.0828 73.5229 26.2106 73.5229 30.6596V65.2846H63.2708V29.1121C63.2708 18.86 67.0428 14.2175 77.1014 14.2175Z"
+                fill="#0a4d8d" />
+            </g>
+
+            <!-- O -->
+            <g id="footer-letter-O">
+              <path
+                d="M127.868 14.2175H138.604C152.144 14.2175 160.752 22.5353 160.752 39.7511C160.752 56.9669 152.144 65.2846 138.604 65.2846H127.868C114.231 65.2846 105.719 56.9669 105.719 39.7511C105.719 22.5353 114.231 14.2175 127.868 14.2175ZM137.636 24.0828H128.835C119.937 24.0828 116.068 28.7252 116.068 39.7511C116.068 50.7769 119.937 55.3227 128.835 55.3227H137.636C146.438 55.3227 150.403 50.7769 150.403 39.7511C150.403 28.7252 146.438 24.0828 137.636 24.0828Z"
+                fill="#0a4d8d" />
+            </g>
+
+            <!-- S -->
+            <g id="footer-letter-S">
+              <path
+                d="M187.243 14.2175H215.581V24.0828H187.34C182.601 24.0828 180.666 26.0171 180.666 29.8858C180.666 33.4644 182.214 35.3988 187.92 35.3988H199.913C214.034 35.3988 217.612 41.8789 217.612 49.8097C217.612 58.9012 212.873 65.2846 200.88 65.2846H171.188V55.3227H200.88C205.619 55.3227 207.554 53.6785 207.554 49.713C207.554 45.6509 205.426 44.0067 200.3 44.0067H188.21C174.089 44.0067 170.608 36.9462 170.608 29.1121C170.608 19.9239 175.347 14.2175 187.243 14.2175Z"
+                fill="#0a4d8d" />
+            </g>
+
+            <!-- P -->
+            <g id="footer-letter-P2">
+              <path
+                d="M248.266 14.2175H262.387C275.927 14.2175 284.438 22.5353 284.438 39.7511C284.438 56.9669 275.927 65.2846 262.387 65.2846H239.755V85.7888H229.502V36.0758C229.502 21.3747 235.983 14.2175 248.266 14.2175ZM239.755 36.5594V55.3227H261.323C270.221 55.3227 274.089 50.7769 274.089 39.7511C274.089 28.7252 270.221 24.0828 261.323 24.0828H251.264C242.946 24.0828 239.755 27.758 239.755 36.5594Z"
+                fill="#0a4d8d" />
+            </g>
+
+            <!-- 3 -->
+            <g id="footer-digit-3">
+              <path
+                d="M293.947 14.1923H319.456C331.491 14.1923 336.562 20.0206 336.562 27.8926C336.562 33.948 333.989 37.6569 329.296 39.6249C334.14 41.6686 336.713 45.4532 336.713 51.5843C336.713 59.2292 331.718 65.2846 319.683 65.2846H293.872V56.3529H319.683C324.905 56.3529 327.403 53.9308 327.403 49.8434C327.403 45.756 324.754 43.7123 319.607 43.7123H303.863V35.6132H319.38C324.603 35.6132 327.176 33.7209 327.176 29.4821C327.176 25.6218 324.83 23.124 319.456 23.124H293.947V14.1923Z"
+                fill="#0a4d8d" />
+            </g>
+
+            <!-- R -->
+            <g id="footer-letter-R2">
+              <path
+                d="M362.011 14.2175H382.999V24.0828H365.01C360.464 24.0828 358.433 26.2106 358.433 30.6596V65.2846H348.181V29.1121C348.181 18.86 351.953 14.2175 362.011 14.2175Z"
+                fill="#0a4d8d" />
+            </g>
+          </svg>
+        </div>
+        <p class="footer-tagline">A better way to find your next career opportunity.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/prosp3r-ltd/" target="_blank" class="social-link" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <div class="footer-column">
+            <!-- <h3 class="footer-heading">Company</h3>
+            <ul class="footer-nav">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul> -->
+          </div>
+          <div class="footer-column">
+            <!-- <h3 class="footer-heading">Resources</h3>
+            <ul class="footer-nav">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Prosp3r. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('waitlist-form');
+      const formMessage = document.getElementById('form-message');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        formMessage.textContent = "Please wait..."
+        formMessage.className = 'form-message success';
+
+        // console.log(json);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            console.log(response)
+            if (response.status == 200) {
+              // result.innerHTML = json.message;
+
+              formMessage.textContent = 'Thank you! You\'ve been added to our waitlist.';
+              formMessage.className = 'form-message success';
+              form.reset();
+
+            } else {
+              console.log(response);
+
+              formMessage.textContent = 'Thank you! You\'ve been added to our waitlist.';
+              formMessage.className = 'form-message success';
+              form.reset();
+            }
+          })
+          .catch(error => {
+            console.log(error);
+            formMessage.textContent = "Something went wrong!";
+          })
+          .then(function () {
+            form.reset();
+            setTimeout(() => {
+              formMessage.textContent = '';
+              formMessage.className = 'form-message';
+            }, 3000);
+          });
+      });
+    });
+  </script>
 </body>
+
 </html>
