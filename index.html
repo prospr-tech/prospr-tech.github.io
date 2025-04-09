@@ -431,7 +431,7 @@
     }
 
     .launching-section {
-      background-color: #f0f7ff;
+      background-color: white;
       padding: 5rem 2rem;
       text-align: center;
     }
@@ -743,6 +743,140 @@
         height: 32px;
       }
     }
+
+    .testimonial-section {
+      background-color: #f0f7ff;
+      padding: 5rem 2rem;
+    }
+
+    .testimonial-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a4d8d;
+      margin-bottom: 3rem;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(10, 77, 141, 0.08);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      height: 300px;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(10, 77, 141, 0.12);
+      height: auto;
+      z-index: 10;
+    }
+
+    .testimonial-content {
+      padding: 2rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+    }
+
+    .testimonial-text {
+      color: #4a5568;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
+      position: relative;
+    }
+
+    .testimonial-preview {
+      display: block;
+    }
+
+    .testimonial-full {
+      display: none;
+    }
+
+    .testimonial-card:hover .testimonial-preview {
+      display: none;
+    }
+
+    .testimonial-card:hover .testimonial-full {
+      display: block;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0a4d8d;
+      margin: 0;
+    }
+
+    .author-info p {
+      font-size: 0.875rem;
+      color: #718096;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .testimonial-section {
+        padding: 3rem 1rem;
+      }
+
+      .testimonial-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-text {
+        font-size: 0.9rem;
+      }
+    }
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.min.css" rel="stylesheet">
 </head>
@@ -809,7 +943,8 @@
       <h1 class="hero-title">A true passion for <span class="highlight">Elixir</span>, <span
           class="highlight">Erlang</span> and <span class="highlight">Clojure</span> inspired us to build a platform by
         <span class="highlight">candidates</span>, for <span class="highlight">candidates</span> designed to help you
-        succeed and Prosp3r in finding your next career opportunity.</h1>
+        succeed and Prosp3r in finding your next career opportunity.
+      </h1>
       <p class="hero-subtitle">We're the first truly interactive, person-to-person Candidate Mentorship and Job Board
         for candidates and companies.</p>
     </div>
@@ -905,17 +1040,276 @@
           candidates to prosper in finding their next career opportunity.
         </p>
         <p class="about-text">
-          Alongside our main services we also offer all candidates a Free Candidate Advice Assessment (CAA) to help
+          Alongside our main services, we also offer all candidates a Free Candidate Advice Assessment (CAA) to help
           direct you in your career search for your next opportunity!
+          <br />
+          <a class="mt-10 highlight-blue text-blue-600 text-base"
+            href="https://www.youtube.com/watch?v=XosDAiGdcK8&t=2370s" target="_blank" rel="noopener noreferrer">→ Click
+            Here For An Insight Into Our Free Service</a>
         </p>
       </div>
     </div>
   </section>
 
+  <section class="testimonial-section">
+    <div class="testimonial-container">
+      <h2 class="testimonial-title">What People Say <span class="highlight-blue">About Us</span></h2>
+
+      <div class="testimonial-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.25 21H9C7.35 21 6 19.65 6 18V15C6 13.35 7.35 12 9 12H12C12.825 12 13.5 11.325 13.5 10.5V7.5C13.5 6.675 12.825 6 12 6H9C4.5 6 0.75 9.75 0.75 14.25V18.75C0.75 23.25 4.5 27 9 27H14.25C15.9 27 17.25 25.65 17.25 24V24C17.25 22.35 15.9 21 14.25 21ZM30 21H24.75C23.1 21 21.75 19.65 21.75 18V15C21.75 13.35 23.1 12 24.75 12H27.75C28.575 12 29.25 11.325 29.25 10.5V7.5C29.25 6.675 28.575 6 27.75 6H24.75C20.25 6 16.5 9.75 16.5 14.25V18.75C16.5 23.25 20.25 27 24.75 27H30C31.65 27 33 25.65 33 24V24C33 22.35 31.65 21 30 21Z"
+                  fill="#0a4d8d" opacity="0.2" />
+              </svg>
+            </div>
+            <p class="testimonial-text">
+              <span class="testimonial-preview">Working with Jason completely transformed my job search. He provided
+                insightful guidance tailored to my unique career goals and connected me with opportunities
+                perfectly...</span>
+              <span class="testimonial-full">I was a fullstack developer navigating the competitive tech landscape,
+                striving to transition into an Elixir-focused role. After several months of searching without success, I
+                decided to join the Candidate Fulfillment Program, and it turned out to be the best decision I could
+                have made.
+
+                <i class="text-gray-900">Working with Jason completely transformed my job search. He provided insightful
+                  guidance tailored to
+                  my unique career goals and connected me with opportunities perfectly</i> aligned with my skills and
+                ambitions. With his support, I secured an amazing role as an Elixir developer. While Elixir positions
+                can be challenging to find and may take time, the payoff is absolutely worth it in the long run.
+
+                If you’re struggling to break into your dream role or want to shift your career in a new direction, I
+                can’t recommend Jason and the Candidate Fulfillment Program enough. His expertise, encouragement, and
+                personalized approach were instrumental in helping me achieve my goals.</span>
+            </p>
+            <div class="testimonial-author">
+              <!-- <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" class="author-image"> -->
+
+              <img
+                src="data:image/jpeg;base64,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"
+                class="author-image" />
+
+
+              <div class="author-info">
+                <h4>Ricardo Trejos</h4>
+                <p>Software Developer @ Helios</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.25 21H9C7.35 21 6 19.65 6 18V15C6 13.35 7.35 12 9 12H12C12.825 12 13.5 11.325 13.5 10.5V7.5C13.5 6.675 12.825 6 12 6H9C4.5 6 0.75 9.75 0.75 14.25V18.75C0.75 23.25 4.5 27 9 27H14.25C15.9 27 17.25 25.65 17.25 24V24C17.25 22.35 15.9 21 14.25 21ZM30 21H24.75C23.1 21 21.75 19.65 21.75 18V15C21.75 13.35 23.1 12 24.75 12H27.75C28.575 12 29.25 11.325 29.25 10.5V7.5C29.25 6.675 28.575 6 27.75 6H24.75C20.25 6 16.5 9.75 16.5 14.25V18.75C16.5 23.25 20.25 27 24.75 27H30C31.65 27 33 25.65 33 24V24C33 22.35 31.65 21 30 21Z"
+                  fill="#0a4d8d" opacity="0.2" />
+              </svg>
+            </div>
+            <p class="testimonial-text">
+              <span class="testimonial-preview">I had the pleasure of working with Jason through the Candidate
+                Fulfillment Program, and it was an exceptional experience...</span>
+              <span class="testimonial-full">
+                <i class="text-gray-900">I had the pleasure of working with Jason through the Candidate Fulfillment
+                  Program, and I must say it
+                  was an exceptional experience.</i>
+
+                He was proactive in connecting me with multiple potential employers, providing valuable insights into
+                the job market, and offering constructive feedback to enhance my candidacy. The program not only
+                streamlined the job search process but also opened doors to opportunities that aligned perfectly with my
+                skills and aspirations. In three weeks, Jason managed to find five clients, one of which turned into a
+                job offer I accepted.
+
+                I highly recommend Jason and the Candidate Fulfillment Program to fellow professionals seeking a
+                dedicated and results-driven partner in their job search journey.
+              </span>
+            </p>
+            <div class="testimonial-author">
+              <!-- <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Chen" class="author-image"> -->
+
+              <img
+                src="data:image/jpeg;base64,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"
+                class="author-image" />
+
+
+              <div class="author-info">
+                <h4>Yurii Zhyvaha</h4>
+                <p>Senior Software Engineer @ Kantox</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.25 21H9C7.35 21 6 19.65 6 18V15C6 13.35 7.35 12 9 12H12C12.825 12 13.5 11.325 13.5 10.5V7.5C13.5 6.675 12.825 6 12 6H9C4.5 6 0.75 9.75 0.75 14.25V18.75C0.75 23.25 4.5 27 9 27H14.25C15.9 27 17.25 25.65 17.25 24V24C17.25 22.35 15.9 21 14.25 21ZM30 21H24.75C23.1 21 21.75 19.65 21.75 18V15C21.75 13.35 23.1 12 24.75 12H27.75C28.575 12 29.25 11.325 29.25 10.5V7.5C29.25 6.675 28.575 6 27.75 6H24.75C20.25 6 16.5 9.75 16.5 14.25V18.75C16.5 23.25 20.25 27 24.75 27H30C31.65 27 33 25.65 33 24V24C33 22.35 31.65 21 30 21Z"
+                  fill="#0a4d8d" opacity="0.2" />
+              </svg>
+            </div>
+            <p class="testimonial-text">
+              <span class="testimonial-preview">Working with Jason and the Candidate Fulfillment Program as I
+                transitioned from a junior to a mid-level developer role was a game-changer for my career....</span>
+              <span class="testimonial-full"><i class="text-gray-900">Working with Jason and the Candidate Fulfillment
+                  Program as I transitioned
+                  from a junior to a mid-level developer role was a game-changer for my career.</i> Jason’s approach is
+                both
+                personalized and strategic, offering more than just job placements; he provides a pathway for
+                professional growth. His insights and support significantly enhanced my marketability, and the program
+                itself offered invaluable resources and guidance, making a daunting job search feel structured and
+                achievable. Thanks to Jason, I landed a role that was not just a job, but a perfect fit for my skills
+                and career ambitions. I highly recommend Jason and the Candidate Fulfillment Program to any developer
+                eager to advance their career with a truly supportive and knowledgeable partner in the tech
+                industry.</span>
+            </p>
+            <div class="testimonial-author">
+              <!-- <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Torres" class="author-image"> -->
+
+              <img
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD0VD2qVW9KrIxxUgbp1rwmj2y0H4pd/FVw1KG9KhoaJLh8QSZP8Jrnmaqfjbxda6DB5AHnXjqcRg/dzxlvT2FeYT+N9Qd2PmhR6L/n/PvW1KlJ6mVSpFH1hAf9DjpRXy2vxP8AEuxUGpTBOgA2/wCGa2tI+KHiJJFWS8SRemJIVP69a61RZxuSufSCVKtcF4L8cJq0qW2oxpb3DAlXB2o3Tjnufxr0BKajYlyQ9R604rkEeop6L0qQL7VooiucDqCf6W49Cf50Va1Ndt/MMfxUVPKXzHKKeOKeD3qurYHvTg1cDR3JlgMfWo7i6jt4mkldUUZPzHH86iUYkL5OSAOvpz/WvHviVrl5N4imsGkK28BG1Bx1AOfrzThT53YUp8qOe1y6m1TVbm5kJLyOWPtnt9McD2rOFu5Y8HNdHpyJ9nDSAFm5Nadvb27HOxc/SutTUdCFQ5tTlIbGRmXCnPbH0rQtrOaNuUbJ6cGu20qC3WQN5anPAyBxXX6baQTyYMMXbJwOKtVbkPDWR5/pt0LdRDJkSvxtHGP/ANdfRHw71CfUfDcEl3KZZkJQsR82B0z7479/rmvMvHPhhfsSX1qq+bCQGAH3lJ6fnXe/CSUz6JKSoG11T64HX9a0XvHLOPKd9GBUwFMiXIqdVq0jJyOF11duqTD3oqz4li/4mrn1ANFLlKUjzwNxTw2agVuOtOD8V5rR6ZPu+teB+NmMvjPUSx5E20fQDH8q91MoVWZiAAMk56AV4Zr0sGo+Mrqa2YtDK+4ZGOgAzj6g1pRVmyKmti/AP3SA8DGK0LQr93ueKwNQMkj7BL5UK9TjrVSFpLeQNFfBgO3PFaKF9TX2nLoeiWIKDOeSeldj4bkWSRSSOOxrz7w1cS30qRIdz4IqK71Ce2vCkOoCLDEGnCOoTnpc91vYxPo1ypwQYify/wD1VqfCuFo/D0rMoAa4fB9QDiuA8DpeTwFhqDXAdSskbjGAQeRXrPg1VXw1p20ABoVZvqeSfzreCPPrs341qao4/WpK2SOa5y/iKLdqGf8AYH9aK0tVj33Kn/ZH8zRT5QueJBunWl31XDccml3j1ryWj1kyaYCWF0bo4wfoRivEo4BBrLR/xoGU/hmvZ9/vXmHie0ew8Tq7LiK4LsreuT/Pmrpu2g011My7txM3zZyDn6VV+wpGHCgfMctx1rVKnfwabcR4QY+8en41rGTWhpKmnqdB8M4zHrtso6swH4E4rS8TeDltdU3t81pcMWB54IPT9apeBDHb65amVyqhxuPpzXpviO5i3wQAxywtnBByAfQ+nbFVF63JnFNJGj4O0y1jto7qJAJtoVmU4yAOBgcdPxr0DwupTQrFOOIgOK47w5HFb2ZaLIXBJ59K6rwdMZ/DlhIerJn8Of8ACtqep5+JVtEdFGakqGM4xUvatkjlKl4u6UH2oqw65aimI+cA/HJFG8etUWmHQE5oEo7k15TR6yZfEnoa4H4pTmI6Y4/hdjn29K7ANnoTXGfFCMy6TbuvVHP8v8adO3MKbsrlK2kEpB4xgc/WmXsmfkAJOOlYOhaqjRiORsSA4+tbZMUrPubJPB2nH6ituWzNo1FKOhP4djuYZxKjJ5nmjKswHynPP16e9ev2bWk9rHaym2LuSySQMOvuOuc15HpFpbi6Vba3Mzk87snj+tdo8NrCbea3sxbToQpKrtzj19qptCeh6PaTm00y7Dk7ljfv7Gu18Cr5fhbT0bqsY9R1rxzX/ESJaR20bbrmYKGxjgE17V4XTy9EswMf6tTwMdRmtqSPPxMrvQ3Y6nFV4z6danB4rY5Li0UhooC58n+dxSrN2zWrY+GJJVJurtYiO0a7v16Z/OtG00OytBmUG5f1ckAfQd/1ry2eukzASTJAGeeKreJNKW/0SdJid4QugXrkDOD+XvXQ3ZRTtjiiTBI3KuDj8PrWDq98tro2pXEbFjHGQp9Wx0/PFEVrcbWh4HNuiuSYw2MntV/TdSmhlALnDYzn3qLUYPLuCSDjAx1qkMhwR07V3pJo47uL0PS9L1+GyiWSAgzblU+pzzkfyrd1TxRNqJZxIuAVHHbt/OvIklaMhVYhuK6DSJCrFSSQxHfrz1/SlyLcr20paHcaFvuPFFkZtswkkXhskHB/Ud6+u7NYhBFGoDEKOQMcDjtXy58LrYX/AIpsWkH7qAl3yBj0/DivZtT1to7m7is5CsWF3BONp9fpj8jWsbKNzCUXJ2PREMXmFUkBcdR7U4zxK+1pUDHgAmuG8H34Zb+TcTJHFuGefxrJvb6Rrkkyu2Gzy1Lm0uL2Wp6rRXKalq0tpcLHA7lCit19RRVWM+RnmXP2ZeT0zVKdiEYjg80UV5Z6xlak5WxdwfmwTn8K5vXlA8G3OOrICT9WFFFaR2Je55xqEKSWSuw+YdxXOtwwI65NFFdMNjmq7kuP3xrasht2Hk9Ov0FFFaMzR7f8KFWOHUZVUCQgLu9Bj/69bayuutxMD/rSVb3GcUUUP4UOO7N3wm7R61cQqf3bwyAj1wM/0qpckiU896KKnoX1Z0mruxktieptov8A0EUUUVsZn//Z"
+                class="author-image" />
+
+
+              <div class="author-info">
+                <h4>Kacper Muryn</h4>
+                <p>Elixir Software Engineer @ ChargeIQ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.25 21H9C7.35 21 6 19.65 6 18V15C6 13.35 7.35 12 9 12H12C12.825 12 13.5 11.325 13.5 10.5V7.5C13.5 6.675 12.825 6 12 6H9C4.5 6 0.75 9.75 0.75 14.25V18.75C0.75 23.25 4.5 27 9 27H14.25C15.9 27 17.25 25.65 17.25 24V24C17.25 22.35 15.9 21 14.25 21ZM30 21H24.75C23.1 21 21.75 19.65 21.75 18V15C21.75 13.35 23.1 12 24.75 12H27.75C28.575 12 29.25 11.325 29.25 10.5V7.5C29.25 6.675 28.575 6 27.75 6H24.75C20.25 6 16.5 9.75 16.5 14.25V18.75C16.5 23.25 20.25 27 24.75 27H30C31.65 27 33 25.65 33 24V24C33 22.35 31.65 21 30 21Z"
+                  fill="#0a4d8d" opacity="0.2" />
+              </svg>
+            </div>
+            <p class="testimonial-text">
+              <span class="testimonial-preview">Beyond his extensive connections within the global Elixir community, he
+                also offers great advice and feedback during the entire application and interview process....</span>
+              <span class="testimonial-full">I was referred to Jason by a colleague from the Elixir community and had
+                the pleasure of working with him in my most recent job search. He remains the only recruiter I have ever
+                encountered that shows real dedication and interest to his recruits; he sees you as a person, not a
+                paycheck. <i class="text-gray-900">Beyond his extensive connections within the global Elixir community,
+                  he also offers great
+                  advice and feedback during the entire application and interview process.</i> Recently, he started a
+                new
+                candidate support program where you can get customized 1:1 support with guaranteed placement. I haven't
+                had an occasion to utilize the Candidate Performance Program yet, but look forward to taking advantage
+                of it in the future. If you are in the market for a new Elixir role and want to make the most of your
+                job search, I highly recommend working with him.</span>
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="data:image/jpeg;base64,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"
+                class="author-image" />
+
+              <div class="author-info">
+                <h4>Grace Spletzer</h4>
+                <p>Senior Software Engineer @ DraftKings</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.25 21H9C7.35 21 6 19.65 6 18V15C6 13.35 7.35 12 9 12H12C12.825 12 13.5 11.325 13.5 10.5V7.5C13.5 6.675 12.825 6 12 6H9C4.5 6 0.75 9.75 0.75 14.25V18.75C0.75 23.25 4.5 27 9 27H14.25C15.9 27 17.25 25.65 17.25 24V24C17.25 22.35 15.9 21 14.25 21ZM30 21H24.75C23.1 21 21.75 19.65 21.75 18V15C21.75 13.35 23.1 12 24.75 12H27.75C28.575 12 29.25 11.325 29.25 10.5V7.5C29.25 6.675 28.575 6 27.75 6H24.75C20.25 6 16.5 9.75 16.5 14.25V18.75C16.5 23.25 20.25 27 24.75 27H30C31.65 27 33 25.65 33 24V24C33 22.35 31.65 21 30 21Z"
+                  fill="#0a4d8d" opacity="0.2" />
+              </svg>
+            </div>
+            <p class="testimonial-text">
+              <span class="testimonial-preview">The candidate fulfilment program is really effective and it helped me a
+                lot finding my new role...</span>
+              <span class="testimonial-full">Working with Jason was great, his experience with recruiting and how to
+                navigate the job market is formidable and gave me a really upper edge while interviewing and finding the
+                best matches for my abilities. <i class="text-gray-900">The candidate fulfilment program is really
+                  effective and it helped me a lot finding my new role</i>, highly recommend working with him.</span>
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="data:image/jpeg;base64,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"
+                class="author-image" />
+
+              <div class="author-info">
+                <h4>
+                  Ygor S.</h4>
+                <p>Lead Software Engineer @ Edlon Tech</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 6 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.25 21H9C7.35 21 6 19.65 6 18V15C6 13.35 7.35 12 9 12H12C12.825 12 13.5 11.325 13.5 10.5V7.5C13.5 6.675 12.825 6 12 6H9C4.5 6 0.75 9.75 0.75 14.25V18.75C0.75 23.25 4.5 27 9 27H14.25C15.9 27 17.25 25.65 17.25 24V24C17.25 22.35 15.9 21 14.25 21ZM30 21H24.75C23.1 21 21.75 19.65 21.75 18V15C21.75 13.35 23.1 12 24.75 12H27.75C28.575 12 29.25 11.325 29.25 10.5V7.5C29.25 6.675 28.575 6 27.75 6H24.75C20.25 6 16.5 9.75 16.5 14.25V18.75C16.5 23.25 20.25 27 24.75 27H30C31.65 27 33 25.65 33 24V24C33 22.35 31.65 21 30 21Z"
+                  fill="#0a4d8d" opacity="0.2" />
+              </svg>
+            </div>
+            <p class="testimonial-text">
+              <span class="testimonial-preview">Working with Jason was a game-changer. He was incredibly supportive,
+                guiding me through the process with tailored advice and connecting me with opportunities....</span>
+              <span class="testimonial-full">I was a junior UX/UI designer facing the tough job market, searching for a
+                good position for over 7 months without success. Then I decided to try the Candidate Fulfillment
+                Program, and I couldn't be happier with the outcome.
+
+                <i class="text-gray-900">Working with Jason was a game-changer. He was incredibly supportive, guiding me
+                  through the process with tailored advice and connecting me with opportunities</i> that were a perfect
+                match for my skills and career goals. In just 2 months, I found my first dream team and landed an
+                exciting role that I genuinely love.
+
+                I highly recommend Jason and the Candidate Fulfillment Program to any fellow professionals, especially
+                those who are struggling to find the right fit. His dedication and expertise made all the difference in
+                my job search journey.</span>
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="data:image/jpeg;base64,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"
+                class="author-image" />
+
+              <div class="author-info">
+                <h4>Daria Lysak</h4>
+                <p>UX/UI Designer @ Spiralyze</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="mt-10 highlight-blue text-blue-600 text-sm"
+        href="https://www.linkedin.com/in/truered1/details/recommendations/" target="_blank" rel="noopener noreferrer">→
+        View all recommendations on LinkedIn</a>
+
+    </div>
+
+
+  </section>
+
   <section class="launching-section">
     <div class="launching-container">
       <h2 class="launching-title">Launching <span class="highlight-blue">Soon</span></h2>
-      <p class="launching-text">Be the first to know when we go live and get early access to our exclusive features.</p>
+      <p class="launching-text">Be the first to know when we go live and get early access to our exclusive features by
+        joining our waiting list.</p>
 
       <form method="POST" id="waitlist-form" class="waitlist-form">
         <div class="input-group">
@@ -992,7 +1386,8 @@
         </div>
         <p class="footer-tagline">A better way to find your next career opportunity.</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/company/prosp3r-ltd/" target="_blank" class="social-link" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/prosp3r-ltd/" target="_blank" class="social-link"
+            aria-label="LinkedIn">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
