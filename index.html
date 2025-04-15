@@ -877,11 +877,224 @@
         font-size: 0.9rem;
       }
     }
+
+
+    .team-member-info a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Adjust responsive styles for larger avatars */
+@media (max-width: 768px) {
+  .team-member-avatar {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-member-avatar {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
+/* Add this to your existing CSS */
+.team-panel {
+  position: fixed;
+  top: 0;
+  right: -350px; /* Start off-screen */
+  width: 350px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  transition: right 0.4s ease-out;
+  z-index: 1000;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.team-panel.active {
+  right: 0;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.team-title {
+  color: #0a4d8d;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.close-panel {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.team-member:last-child {
+  border-bottom: none;
+}
+
+.member-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0a4d8d;
+}
+
+.member-info h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  color: #0a4d8d;
+}
+
+.member-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.member-bio {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #4a5568;
+  line-height: 1.4;
+}
+
+.candidate-highlight {
+  position: relative;
+  cursor: pointer;
+}
+
+.panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.panel-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 480px) {
+  .team-panel {
+    width: 85%;
+    right: -85%;
+  }
+}
+
+
+
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.min.css" rel="stylesheet">
 </head>
 
 <body>
+  <div class="panel-overlay"></div>
+
+<!-- Add this right after the opening <body> tag -->
+<div class="panel-overlay"></div>
+
+<div class="team-panel">
+  <div class="team-header">
+    <h3 class="team-title">Our Team</h3>
+    <button class="close-panel">&times;</button>
+  </div>
+  
+  <div class="team-list">
+    <div class="team-member">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jason Jones" class="member-avatar">
+      <div class="member-info">
+        <h4>Jason Jones</h4>
+        <p>Founder & Talent Advocate</p>
+        <div class="member-bio">
+          With over 15 years in Elixir and Erlang recruitment, Jason has built a reputation for connecting exceptional talent with innovative companies.
+        </div>
+      </div>
+    </div>
+    
+    <div class="team-member">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="member-avatar">
+      <div class="member-info">
+        <h4>Sarah Chen</h4>
+        <p>Lead Talent Specialist</p>
+        <div class="member-bio">
+          Sarah specializes in matching Elixir developers with roles that align with their career goals and technical expertise.
+        </div>
+      </div>
+    </div>
+    
+    <div class="team-member">
+      <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Michael Torres" class="member-avatar">
+      <div class="member-info">
+        <h4>Michael Torres</h4>
+        <p>Candidate Mentor</p>
+        <div class="member-bio">
+          As a former Elixir developer turned mentor, Michael helps candidates navigate technical interviews and career transitions.
+        </div>
+      </div>
+    </div>
+    
+    <div class="team-member">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily Johnson" class="member-avatar">
+      <div class="member-info">
+        <h4>Emily Johnson</h4>
+        <p>Client Relations Manager</p>
+        <div class="member-bio">
+          Emily works closely with companies to understand their specific needs and culture to ensure perfect candidate matches.
+        </div>
+      </div>
+    </div>
+    
+    <div class="team-member">
+      <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="David Lee" class="member-avatar">
+      <div class="member-info">
+        <h4>David Lee</h4>
+        <p>Technical Advisor</p>
+        <div class="member-bio">
+          With deep expertise in Clojure and functional programming, David provides technical guidance to both clients and candidates.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
   <div class="hero">
     <nav class="navbar logo-container">
       <a href="#" class="logo">
@@ -940,11 +1153,19 @@
     </nav>
 
     <div class="hero-content">
-      <h1 class="hero-title">A true passion for <span class="highlight">Elixir</span>, <span
+      <!-- <h1 class="hero-title">A true passion for <span class="highlight">Elixir</span>, <span
           class="highlight">Erlang</span> and <span class="highlight">Clojure</span> inspired us to build a platform by
         <span class="highlight">candidates</span>, for <span class="highlight">candidates</span> designed to help you
         succeed and Prosp3r in finding your next career opportunity.
-      </h1>
+      </h1> -->
+
+      <!-- Modify the hero title for candidate text to have a special class -->
+<!-- filepath: /Users/sn/Developer/prospr-tech.github.io/index.html -->
+<h1 class="hero-title">A true passion for <span class="highlight">Elixir</span>, <span
+  class="highlight">Erlang</span> and <span class="highlight">Clojure</span> inspired us to build a platform by
+<span class="highlight candidate-highlight">candidates</span>, for <span class="highlight candidate-highlight">candidates</span> designed to help you
+succeed and Prosp3r in finding your next career opportunity.
+</h1>
       <p class="hero-subtitle">We're the first truly interactive, person-to-person Candidate Mentorship and Job Board
         for candidates and companies.</p>
     </div>
@@ -1481,6 +1702,61 @@
       });
     });
   </script>
+
+
+<!-- // Add this before the closing </body> tag -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all elements
+    const candidateHighlights = document.querySelectorAll('.candidate-highlight');
+    const teamPanel = document.querySelector('.team-panel');
+    const closePanel2 = document.querySelector('.close-panel');
+    const panelOverlay = document.querySelector('.panel-overlay');
+    
+    // Function to open the panel
+    function openPanel() {
+      teamPanel.classList.add('active');
+      panelOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    // Function to close the panel
+    function closePanel() {
+      teamPanel.classList.remove('active');
+      panelOverlay.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }
+    
+    // Add click event to candidate highlights
+    candidateHighlights.forEach(element => {
+      element.addEventListener('click', openPanel);
+      
+      // Also trigger on hover after a short delay
+      let hoverTimer;
+      element.addEventListener('mouseenter', () => {
+        hoverTimer = setTimeout(openPanel, 300); // 300ms delay
+      });
+      
+      // Clear timer if mouse leaves before delay
+      element.addEventListener('mouseleave', () => {
+        clearTimeout(hoverTimer);
+      });
+    });
+    
+    // Close panel when clicking the close button
+    closePanel2.addEventListener('click', closePanel);
+    
+    // Close panel when clicking outside
+    panelOverlay.addEventListener('click', closePanel);
+    
+    // Close panel with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && teamPanel.classList.contains('active')) {
+        closePanel();
+      }
+    });
+  });
+</script>
 </body>
 
 </html>
