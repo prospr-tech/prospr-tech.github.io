@@ -35,30 +35,11 @@
           background-repeat: no-repeat;
           background-position: -300px;
           background-size: 300%;
-          animation: shimmer-off 0.5s;
+          transition: background-position 0.5s ease-in-out;
         }
 
         .shimmer:hover {
-          animation: shimmer 0.5s;
           background-position: -50px;
-        }
-
-        @keyframes shimmer {
-          0% {
-            background-position: -300px;
-          }
-          100% {
-            background-position: -50px;
-          }
-        }
-
-        @keyframes shimmer-off {
-          0% {
-            background-position: -50px;
-          }
-          100% {
-            background-position: -300px;
-          }
         }
 
         .navbar {
