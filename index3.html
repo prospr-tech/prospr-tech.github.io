@@ -26,20 +26,30 @@
         .shimmer {
           background: linear-gradient(
             135deg,
-            #172554 0%,
+            /* #172554 0%, */
             #172554 40%,
             #6c93c8 50%,
             #172554 60%,
             #172554 100%
             );
           background-repeat: no-repeat;
-          background-position: -300px;
+          background-position: -850px;
           background-size: 300%;
-          transition: background-position 0.5s ease-in-out;
+          transition: background-position 0.8s ease-in-out;
         }
 
         .shimmer:hover {
-          background-position: -50px;
+          background-position: -150px;
+        }
+
+        @media (width >= 48rem) {
+          .shimmer {
+            background-position: -290px;
+            transition: background-position 0.5s ease-in-out;
+          }
+          .shimmer:hover {
+            background-position: -60px;
+          }
         }
 
         .navbar {
