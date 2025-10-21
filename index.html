@@ -15,668 +15,689 @@
       @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
     </style>
     <style>
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: 'Inter', sans-serif;
-      }
-
-      .prosper-font {
-          font-family: 'Outfit', sans-serif;
-      }
-
-      .shimmer {
-        background: linear-gradient(
-          135deg,
-          /* #172554 0%, */
-          #172554 40%,
-          #6c93c8 50%,
-          #172554 60%,
-          #172554 100%
-          );
-        background-repeat: no-repeat;
-        background-position: -850px;
-        background-size: 300%;
-        transition: background-position 0.8s ease-in-out;
-      }
-
-      .shimmer:hover {
-        background-position: -150px;
-      }
-
-      @media (width >= 48rem) {
-        .shimmer {
-          background-position: -290px;
-          transition: background-position 0.5s ease-in-out;
-        }
-        .shimmer:hover {
-          background-position: -60px;
-        }
-      }
-
-      .navbar {
-          padding: 2rem 3rem;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-      }
-
-      .logo {
-          display: block;
-          max-width: 100%;
-          height: auto;
-      }
-
-      .logo svg {
-          height: 40px;
-          width: auto;
-      }
-
-      .headline {
-          /* Headlines/H2 */
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 42px;
-          line-height: 50px;
-          /* identical to box height, or 119% */
-          text-align: center;
-          color: #001A23;
-          margin-bottom: 1.5rem;
-      }
-
-      .subtitle {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 24px;
-          line-height: 32px;
-          /* or 133% */
-          text-align: center;
-          color: #062E55;
-          margin-bottom: 2rem;
-      }
-
-      .help-text-email {
-          /* Your email is safe — no spam, no sharing, ever. */
-          /* Paragraphs/P-14-L */
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 300;
-          font-size: 14px;
-          line-height: 20px;
-          /* identical to box height, or 143% */
-          text-align: center;
-          color: #062E55;
-          margin-top: 1rem;
-      }
-
-      .form-container {
-          background: white;
-          padding: 2rem;
-          border-radius: 4px;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-          margin: 2rem 0;
-          border: 1px solid rgba(0, 0, 0, 0.05);
-      }
-
-      .why-prosp3r-section {
-          padding: 4rem 2rem;
-          max-width: 1280px;
-          margin: 0 auto;
-      }
-
-      .why-prosp3r-title {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 42px;
-          line-height: 50px;
-          text-align: center;
-          color: #001A23;
-          margin-bottom: 1rem;
-      }
-
-      .why-prosp3r-subtitle {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 24px;
-          line-height: 32px;
-          text-align: center;
-          color: #062E55;
-          margin-bottom: 3rem;
-      }
-
-      .services-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2rem;
-          margin-bottom: 3rem;
-      }
-
-      .service-card {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 32px;
-          gap: 12px;
-          background: rgba(251, 253, 255, 0.6);
-          border-radius: 16px;
-          min-height: 256px;
-      }
-
-      .service-card:nth-child(2) {
-          /* background: rgba(196, 224, 251, 0.5); */
-          background: rgba(251, 253, 255, 0.6);
-      }
-
-      .service-card:nth-child(3) {
-          background: rgba(251, 253, 255, 0.6);
-      }
-
-      .icon-wrapper {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          padding: 8px;
-          gap: 8px;
-          width: 64px;
-          height: 64px;
-          background: #C4E0FB;
-          border-radius: 16px;
-          flex: none;
-          order: 0;
-          flex-grow: 0;
-      }
-
-      .icon-wrapper img {
-          width: 54px;
-          height: 54px;
-          flex: none;
-          order: 0;
-          flex-grow: 0;
-      }
-
-      .service-content {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 0px;
-          gap: 12px;
-          width: 100%;
-          flex: none;
-          order: 1;
-          align-self: stretch;
-          flex-grow: 0;
-      }
-
-      .service-title {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 24px;
-          line-height: 32px;
-          color: #001A23;
-      }
-
-      .service-description {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 24px;
-          /* or 150% */
-          display: flex;
-          align-items: center;
-
-          color: #062E55;
-      }
-
-      .video-section {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 2rem;
-          margin-bottom: 3rem;
-      }
-
-      .video-container {
-          background: rgba(196, 224, 251, 0.3);
-          border-radius: 16px;
-          padding: 2rem;
-          text-align: center;
-      }
-
-      .video-text-stack {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          height: 100%;
-      }
-
-      .video-text-card {
-          box-sizing: border-box;
-          /* display: flex; */
-          /* flex-direction: column; */
-          /* align-items: flex-start; */
-          padding: 32px;
-          gap: 12px;
-          border-radius: 16px;
-          /* flex: none; */
-          /* align-self: stretch; */
-          flex-grow: 0;
-      }
-
-
-
-      .video-text-card-first {
-          background: rgba(251, 253, 255, 0.6) !important;
-          /* height: 192px; */
-      }
-
-
-      .video-text-card {
-          background: rgba(196, 224, 251, 0.5);
-          /* height: 128px; */
-      }
-
-      .video-text-card p {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 18px;
-          line-height: 32px;
-          /* display: flex; */
-          /* align-items: center; */
-          color: #062E55;
-          flex: none;
-          order: 0;
-          align-self: stretch;
-          flex-grow: 0;
-          margin: 0;
-      }
-
-      .bottom-section {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 2rem;
-      }
-
-      .bottom-card {
-          background: rgba(196, 224, 251, 0.3);
-          border-radius: 16px;
-          padding: 2rem;
-      }
-
-      /* Testimonial Section */
-      .testimonial-section {
-          padding: 4rem 2rem;
-          max-width: 1280px;
-          margin: 0 auto;
-      }
-
-      .testimonial-title {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 42px;
-          line-height: 50px;
-          text-align: center;
-          color: #001A23;
-          margin-bottom: 3rem;
-      }
-
-      .testimonial-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2rem;
-      }
-
-      .testimonial-card {
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 32px;
-          gap: 24px;
-          background: rgba(255, 255, 255, 0.6);
-          backdrop-filter: blur(36px);
-          border-radius: 16px;
-          flex: none;
-          order: 0;
-          flex-grow: 1;
-          min-height: 224px;
-      }
-
-      .testimonial-text {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 24px;
-          color: #001A23;
-          flex: 1;
-          margin: 0;
-      }
-
-      .testimonial-author {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          padding: 0px;
-          gap: 8px;
-          flex: none;
-          order: 1;
-          align-self: stretch;
-          flex-grow: 0;
-      }
-
-      .author-image {
-          box-sizing: border-box;
-          width: 40px;
-          height: 40px;
-          border: 0.8px solid #C4E0FB;
-          border-radius: 20px;
-          flex: none;
-          order: 0;
-          flex-grow: 0;
-      }
-
-      .author-info {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 0px;
-          flex: none;
-          order: 1;
-          width: 12em;
-          flex-grow: 1;
-      }
-
-      .author-info h4 {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 20px;
-          color: #001A23;
-          margin: 0;
-      }
-
-      .author-info p {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 300;
-          font-size: 14px;
-          line-height: 20px;
-          color: #062E55;
-          margin: 0;
-      }
-
-      .view-all-link {
-          text-align: center;
-          margin-top: 2rem;
-      }
-
-      .view-all-link a {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 24px;
-          color: #0366d6;
-          text-decoration: none;
-          cursor: pointer;
-      }
-
-      .view-all-link a:hover {
-          text-decoration: underline;
-      }
-
-      /* Meet Our Team Section */
-      .team-section {
-          padding: 4rem 2rem;
-          max-width: 1280px;
-          margin: 0 auto;
-      }
-
-      .team-title {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 42px;
-          line-height: 50px;
-          text-align: center;
-          color: #001A23;
-          margin-bottom: 3rem;
-      }
-
-      .team-grid {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 2rem;
-          justify-items: center;
-      }
-
-      .team-card {
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 24px 32px;
-          gap: 12px;
-          isolation: isolate;
-          background: rgba(255, 255, 255, 0.6);
-          backdrop-filter: blur(36px);
-          border-radius: 16px;
-          flex: none;
-          order: 0;
-          flex-grow: 0;
-          position: relative;
-          min-height: 184px;
-          width: 100%;
-          max-width: 220px;
-      }
-
-      .team-member-image {
-          box-sizing: border-box;
-          width: 60px;
-          height: 60px;
-          border: 1.5px solid #0A4D8D;
-          border-radius: 30px;
-          flex: none;
-          order: 0;
-          flex-grow: 0;
-          z-index: 0;
-          object-fit: cover;
-      }
-
-      .team-member-info {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 0px;
-          gap: 4px;
-          flex: none;
-          order: 1;
-          align-self: stretch;
-          flex-grow: 0;
-          z-index: 1;
-          width: 100%;
-      }
-
-      .team-member-name-wrapper {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          padding: 0px;
-          gap: 8px;
-          flex: none;
-          order: 0;
-          align-self: stretch;
-          flex-grow: 0;
-          width: 100%;
-      }
-
-      .team-member-name {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 20px;
-          text-align: center;
-          color: #062E55;
-          flex: none;
-          order: 0;
-          flex-grow: 1;
-          margin: 0;
-          width: 100%;
-          justify-content: center;
-      }
-
-      .team-member-title {
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 300;
-          font-size: 14px;
-          line-height: 20px;
-          text-align: center;
-          color: #64748B;
-          flex: none;
-          order: 1;
-          flex-grow: 0;
-          margin: 0;
-          width: 100%;
-      }
-
-      .team-linkedin-link {
-          position: absolute;
-          width: 24px;
-          height: 24px;
-          right: 16px;
-          top: 16px;
-          flex: none;
-          order: 2;
-          flex-grow: 0;
-          z-index: 2;
-      }
-
-      .team-linkedin-icon {
-          position: absolute;
-          width: 24px;
-          height: 24px;
-          left: calc(50% - 24px/2);
-          top: calc(50% - 24px/2);
-      }
-
-      .team-linkedin-icon svg {
-          width: 24px;
-          height: 24px;
-      }
-
-      .team-linkedin-icon path {
-          fill: #0A4D8D;
-      }
-
-      /* Launching Soon Section */
-      .launching-soon-section {
-          padding: 4rem 2rem 0 0 ;
-          max-width: 1280px;
-          margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-      }
-
-      .launching-soon-title {
-          width: 100%;
-          max-width: 1280px;
-          height: 50px;
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 42px;
-          line-height: 50px;
-          display: flex;
-          align-items: center;
-          text-align: center;
-          justify-content: center;
-          color: #001A23;
-          flex: none;
-          order: 0;
-          align-self: stretch;
-          flex-grow: 0;
-          margin-bottom: 2rem;
-      }
-
-      .launching-soon-subtitle {
-          width: 100%;
-          max-width: 780px;
-          height: 64px;
-          font-family: 'Outfit';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 24px;
-          line-height: 32px;
-          display: flex;
-          align-items: center;
-          text-align: center;
-          justify-content: center;
-          color: #062E55;
-          flex: none;
-          order: 1;
-          align-self: stretch;
-          flex-grow: 0;
-          margin: 0;
-      }
-
-      @media (max-width: 768px) {
-          .services-grid {
-              grid-template-columns: 1fr;
+      @import "tailwindcss";
+
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: 'Inter', sans-serif;
           }
 
-          .video-section,
-          .bottom-section {
-              grid-template-columns: 1fr;
+          .prosper-font {
+              font-family: 'Outfit', sans-serif;
+          }
+
+      .form-message {
+        margin-top: 1em;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+          .shimmer {
+            background: linear-gradient(
+              135deg,
+              /* #172554 0%, */
+              #172554 40%,
+              #6c93c8 50%,
+              #172554 60%,
+              #172554 100%
+              );
+            background-repeat: no-repeat;
+            background-position: -850px;
+            background-size: 300%;
+            transition: background-position 0.8s ease-in-out;
+          }
+
+          .shimmer:hover {
+            background-position: -150px;
+          }
+
+          @media (width >= 48rem) {
+            .shimmer {
+              background-position: -290px;
+              transition: background-position 0.5s ease-in-out;
+            }
+            .shimmer:hover {
+              background-position: -60px;
+            }
+          }
+
+          .navbar {
+              padding: 2rem 3rem;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+          }
+
+          .logo {
+              display: block;
+              max-width: 100%;
+              height: auto;
+          }
+
+          .logo svg {
+              height: 40px;
+              width: auto;
+          }
+
+          .headline {
+              /* Headlines/H2 */
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 42px;
+              line-height: 50px;
+              /* identical to box height, or 119% */
+              text-align: center;
+              color: #001A23;
+              margin-bottom: 1.5rem;
+          }
+
+          .subtitle {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 32px;
+              /* or 133% */
+              text-align: center;
+              color: #062E55;
+              margin-bottom: 2rem;
+          }
+
+          .help-text-email {
+              /* Your email is safe — no spam, no sharing, ever. */
+              /* Paragraphs/P-14-L */
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 300;
+              font-size: 14px;
+              line-height: 20px;
+              /* identical to box height, or 143% */
+              text-align: center;
+              color: #062E55;
+              margin-top: 1rem;
+          }
+
+          .form-container {
+              background: white;
+              padding: 2rem;
+              border-radius: 4px;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+              margin: 2rem 0;
+              border: 1px solid rgba(0, 0, 0, 0.05);
+          }
+
+          .why-prosp3r-section {
+              padding: 4rem 2rem;
+              max-width: 1280px;
+              margin: 0 auto;
           }
 
           .why-prosp3r-title {
-              font-size: 32px;
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 42px;
+              line-height: 50px;
+              text-align: center;
+              color: #001A23;
+              margin-bottom: 1rem;
           }
 
           .why-prosp3r-subtitle {
-              font-size: 20px;
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 32px;
+              text-align: center;
+              color: #062E55;
+              margin-bottom: 3rem;
+          }
+
+          .services-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 2rem;
+              margin-bottom: 3rem;
+          }
+
+          .service-card {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 32px;
+              gap: 12px;
+              background: rgba(251, 253, 255, 0.6);
+              border-radius: 16px;
+              min-height: 256px;
+          }
+
+          .service-card:nth-child(2) {
+              /* background: rgba(196, 224, 251, 0.5); */
+              background: rgba(251, 253, 255, 0.6);
+          }
+
+          .service-card:nth-child(3) {
+              background: rgba(251, 253, 255, 0.6);
+          }
+
+          .icon-wrapper {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              padding: 8px;
+              gap: 8px;
+              width: 64px;
+              height: 64px;
+              background: #C4E0FB;
+              border-radius: 16px;
+              flex: none;
+              order: 0;
+              flex-grow: 0;
+          }
+
+          .icon-wrapper img {
+              width: 54px;
+              height: 54px;
+              flex: none;
+              order: 0;
+              flex-grow: 0;
+          }
+
+          .service-content {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 0px;
+              gap: 12px;
+              width: 100%;
+              flex: none;
+              order: 1;
+              align-self: stretch;
+              flex-grow: 0;
+          }
+
+          .service-title {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 600;
+              font-size: 24px;
+              line-height: 32px;
+              color: #001A23;
+          }
+
+          .service-description {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 24px;
+              /* or 150% */
+              display: flex;
+              align-items: center;
+
+              color: #062E55;
+          }
+
+          .video-section {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 2rem;
+              margin-bottom: 3rem;
+          }
+
+          .video-container {
+              background: rgba(196, 224, 251, 0.3);
+              border-radius: 16px;
+              padding: 2rem;
+              text-align: center;
+          }
+
+          .video-text-stack {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              height: 100%;
+          }
+
+          .video-text-card {
+              box-sizing: border-box;
+              /* display: flex; */
+              /* flex-direction: column; */
+              /* align-items: flex-start; */
+              padding: 32px;
+              gap: 12px;
+              border-radius: 16px;
+              /* flex: none; */
+              /* align-self: stretch; */
+              flex-grow: 0;
+          }
+
+
+
+          .video-text-card-first {
+              background: rgba(251, 253, 255, 0.6) !important;
+              /* height: 192px; */
+          }
+
+
+          .video-text-card {
+              background: rgba(196, 224, 251, 0.5);
+              /* height: 128px; */
+          }
+
+          .video-text-card p {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 32px;
+              /* display: flex; */
+              /* align-items: center; */
+              color: #062E55;
+              flex: none;
+              order: 0;
+              align-self: stretch;
+              flex-grow: 0;
+              margin: 0;
+          }
+
+          .bottom-section {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 2rem;
+          }
+
+          .bottom-card {
+              background: rgba(196, 224, 251, 0.3);
+              border-radius: 16px;
+              padding: 2rem;
+          }
+
+          /* Testimonial Section */
+          .testimonial-section {
+              padding: 4rem 2rem;
+              max-width: 1280px;
+              margin: 0 auto;
           }
 
           .testimonial-title {
-              font-size: 32px;
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 42px;
+              line-height: 50px;
+              text-align: center;
+              color: #001A23;
+              margin-bottom: 3rem;
+          }
+
+          .testimonial-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 2rem;
+          }
+
+          .testimonial-card {
+              box-sizing: border-box;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 32px;
+              gap: 24px;
+              background: rgba(255, 255, 255, 0.6);
+              backdrop-filter: blur(36px);
+              border-radius: 16px;
+              flex: none;
+              order: 0;
+              flex-grow: 1;
+              min-height: 224px;
+          }
+
+          .testimonial-text {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 24px;
+              color: #001A23;
+              flex: 1;
+              margin: 0;
+          }
+
+          .testimonial-author {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              padding: 0px;
+              gap: 8px;
+              flex: none;
+              order: 1;
+              align-self: stretch;
+              flex-grow: 0;
+          }
+
+          .author-image {
+              box-sizing: border-box;
+              width: 40px;
+              height: 40px;
+              border: 0.8px solid #C4E0FB;
+              border-radius: 20px;
+              flex: none;
+              order: 0;
+              flex-grow: 0;
+          }
+
+          .author-info {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 0px;
+              flex: none;
+              order: 1;
+              width: 12em;
+              flex-grow: 1;
+          }
+
+          .author-info h4 {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 20px;
+              color: #001A23;
+              margin: 0;
+          }
+
+          .author-info p {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 300;
+              font-size: 14px;
+              line-height: 20px;
+              color: #062E55;
+              margin: 0;
+          }
+
+          .view-all-link {
+              text-align: center;
+              margin-top: 2rem;
+          }
+
+          .view-all-link a {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 24px;
+              color: #0366d6;
+              text-decoration: none;
+              cursor: pointer;
+          }
+
+          .view-all-link a:hover {
+              text-decoration: underline;
+          }
+
+          /* Meet Our Team Section */
+          .team-section {
+              padding: 4rem 2rem;
+              max-width: 1280px;
+              margin: 0 auto;
           }
 
           .team-title {
-              font-size: 32px;
-          }
-
-          .launching-soon-title {
-              font-size: 32px;
-          }
-
-          .launching-soon-subtitle {
-              font-size: 20px;
-          }
-      }
-      @media (max-width: 900px) {
-          .testimonial-grid {
-              grid-template-columns: 1fr;
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 42px;
+              line-height: 50px;
+              text-align: center;
+              color: #001A23;
+              margin-bottom: 3rem;
           }
 
           .team-grid {
-              grid-template-columns: repeat(2, 1fr);
-              gap: 1rem;
-      }
+              display: grid;
+              grid-template-columns: repeat(5, 1fr);
+              gap: 2rem;
+              justify-items: center;
+          }
+
+          .team-card {
+              box-sizing: border-box;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 24px 32px;
+              gap: 12px;
+              isolation: isolate;
+              background: rgba(255, 255, 255, 0.6);
+              backdrop-filter: blur(36px);
+              border-radius: 16px;
+              flex: none;
+              order: 0;
+              flex-grow: 0;
+              position: relative;
+              min-height: 184px;
+              width: 100%;
+              max-width: 220px;
+          }
+
+          .team-member-image {
+              box-sizing: border-box;
+              width: 60px;
+              height: 60px;
+              border: 1.5px solid #0A4D8D;
+              border-radius: 30px;
+              flex: none;
+              order: 0;
+              flex-grow: 0;
+              z-index: 0;
+              object-fit: cover;
+          }
+
+          .team-member-info {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 0px;
+              gap: 4px;
+              flex: none;
+              order: 1;
+              align-self: stretch;
+              flex-grow: 0;
+              z-index: 1;
+              width: 100%;
+          }
+
+          .team-member-name-wrapper {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              padding: 0px;
+              gap: 8px;
+              flex: none;
+              order: 0;
+              align-self: stretch;
+              flex-grow: 0;
+              width: 100%;
+          }
+
+          .team-member-name {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 20px;
+              text-align: center;
+              color: #062E55;
+              flex: none;
+              order: 0;
+              flex-grow: 1;
+              margin: 0;
+              width: 100%;
+              justify-content: center;
+          }
+
+          .team-member-title {
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 300;
+              font-size: 14px;
+              line-height: 20px;
+              text-align: center;
+              color: #64748B;
+              flex: none;
+              order: 1;
+              flex-grow: 0;
+              margin: 0;
+              width: 100%;
+          }
+
+          .team-linkedin-link {
+              position: absolute;
+              width: 24px;
+              height: 24px;
+              right: 16px;
+              top: 16px;
+              flex: none;
+              order: 2;
+              flex-grow: 0;
+              z-index: 2;
+          }
+
+          .team-linkedin-icon {
+              position: absolute;
+              width: 24px;
+              height: 24px;
+              left: calc(50% - 24px/2);
+              top: calc(50% - 24px/2);
+          }
+
+          .team-linkedin-icon svg {
+              width: 24px;
+              height: 24px;
+          }
+
+          .team-linkedin-icon path {
+              fill: #0A4D8D;
+          }
+
+          /* Launching Soon Section */
+          .launching-soon-section {
+              padding: 4rem 2rem 0 0 ;
+              max-width: 1280px;
+              margin: 0 auto;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+          }
+
+          .launching-soon-title {
+              width: 100%;
+              max-width: 1280px;
+              height: 50px;
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 42px;
+              line-height: 50px;
+              display: flex;
+              align-items: center;
+              text-align: center;
+              justify-content: center;
+              color: #001A23;
+              flex: none;
+              order: 0;
+              align-self: stretch;
+              flex-grow: 0;
+              margin-bottom: 2rem;
+          }
+
+          .launching-soon-subtitle {
+              width: 100%;
+              max-width: 780px;
+              height: 64px;
+              font-family: 'Outfit';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 32px;
+              display: flex;
+              align-items: center;
+              text-align: center;
+              justify-content: center;
+              color: #062E55;
+              flex: none;
+              order: 1;
+              align-self: stretch;
+              flex-grow: 0;
+              margin: 0;
+          }
+
+          @media (max-width: 768px) {
+              .services-grid {
+                  grid-template-columns: 1fr;
+              }
+
+              .video-section,
+              .bottom-section {
+                  grid-template-columns: 1fr;
+              }
+
+              .why-prosp3r-title {
+                  font-size: 32px;
+              }
+
+              .why-prosp3r-subtitle {
+                  font-size: 20px;
+              }
+
+              .testimonial-title {
+                  font-size: 32px;
+              }
+
+              .team-title {
+                  font-size: 32px;
+              }
+
+              .launching-soon-title {
+                  font-size: 32px;
+              }
+
+              .launching-soon-subtitle {
+                  font-size: 20px;
+              }
+          }
+          @media (max-width: 900px) {
+              .testimonial-grid {
+                  grid-template-columns: 1fr;
+              }
+
+              .team-grid {
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: 1rem;
+          }
     </style>
   </head>
 
@@ -766,10 +787,27 @@
           Search Engine for all who're passionate about Elixir, Erlang, Rust and
           Gleam.
         </p>
-        <form class="flex justify-center">
+        <form id="waitlist-form-top" class="flex justify-center">
           <div
             class="flex flex-col md:flex-row w-full max-w-lg p-1 rounded-lg bg-white border border-gray-300 focus-ring-blue-400 focus:outline-none group inline-block"
           >
+            <input
+              type="hidden"
+              name="access_key"
+              value="9fa1771f-95b2-4217-82e8-7a7d23710b64"
+            />
+            <input
+              type="hidden"
+              name="subject"
+              value="WeProsp3r - Waitlist Signup"
+            />
+            <input type="checkbox" name="botcheck" id="" class="hidden" />
+
+            <input
+              type="hidden"
+              name="message"
+              value="New Signup on the Waitlist"
+            />
             <input
               type="email"
               placeholder="Email"
@@ -785,6 +823,11 @@
             </button>
           </div>
         </form>
+        <!-- Feedback Message -->
+        <div
+          id="form-message-top"
+          class="form-message text-sm font-medium mt-4 text-center h-5 transition-all duration-300"
+        ></div>
         <p class="help-text-email">
           Your email is safe — no spam, no sharing, ever.
         </p>
@@ -1155,10 +1198,28 @@
           Join the waitlist — don't miss the launch.
         </p>
       </div>
-      <form class="flex justify-center">
+
+      <form id="waitlist-form-bottom" class="flex justify-center">
         <div
           class="flex flex-col md:flex-row w-full max-w-lg p-1 rounded-lg bg-white border border-gray-300 focus-ring-blue-400 focus:outline-none group inline-block"
         >
+          <input
+            type="hidden"
+            name="access_key"
+            value="9fa1771f-95b2-4217-82e8-7a7d23710b64"
+          />
+          <input
+            type="hidden"
+            name="subject"
+            value="WeProsp3r - Waitlist Signup"
+          />
+          <input type="checkbox" name="botcheck" id="" class="hidden" />
+
+          <input
+            type="hidden"
+            name="message"
+            value="New Signup on the Waitlist"
+          />
           <input
             type="email"
             placeholder="Email"
@@ -1174,9 +1235,17 @@
           </button>
         </div>
       </form>
-      <p class="help-text-email pt-3">
+      <!-- Feedback Message -->
+      <div class="justify-center text-center">
+        <div
+          id="form-message-bottom"
+          class="form-message text-sm font-medium mt-4 justify-center text-center h-5 transition-all duration-300"
+        ></div>
+      </div>
+      <p class="help-text-email">
         Your email is safe — no spam, no sharing, ever.
       </p>
+
       <div
         class="flex flex-col content-around justify-center gap-10 sm:flex-row sm:justify-between p-6"
       >
@@ -1279,5 +1348,56 @@
         <div>© 2025 Prosp3r. All rights reserved.</div>
       </div>
     </footer>
+
+    <script>
+      for (x of ["top", "bottom"]) {
+        const suffix = x;
+        document.addEventListener("DOMContentLoaded", function () {
+          const form = document.getElementById(`waitlist-form-${suffix}`);
+          const formMessage = document.getElementById(`form-message-${suffix}`);
+
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            formMessage.textContent = "Please wait...";
+            formMessage.className = "form-message";
+
+            fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: json,
+            })
+              .then(async (response) => {
+                console.log(response);
+
+                formMessage.textContent =
+                  "Thank you! You've been added to our waitlist.";
+                formMessage.className =
+                  "form-message text-emerald-500 animate-fadeIn";
+                form.reset();
+              })
+              .catch((error) => {
+                console.log(error);
+                formMessage.textContent = "Something went wrong!";
+                formMessage.className =
+                  "form-message text-red-500 animate-fadeIn";
+              })
+              .then(function () {
+                form.reset();
+                setTimeout(() => {
+                  formMessage.textContent = "";
+                  formMessage.className = "form-message";
+                }, 3000);
+              });
+          });
+        });
+      }
+    </script>
   </body>
 </html>
